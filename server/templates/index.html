@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED Control</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Christmas Lights Dashboard</h1>
+
+    <form action="/power" method="post" class="control-form">
+      <button type="submit" name="state" value="on" class="btn btn-on">
+        Turn On
+      </button>
+      <button type="submit" name="state" value="off" class="btn btn-off">
+        Turn Off
+      </button>
+    </form>
+  </div>
+  <div class="container">
+    <form class="speed-section" action="/speed" method="post" class="control-form">
+      <label for="speed">Speed:</label>
+      <input type="number" id="speed" name="speed" min="1" max="100" value="50" placeholder="Enter speed (1-100)" />
+      <button type="submit" class="btn">Set</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <form class="brightness-section" action="/brightness" method="post" class="control-form">
+      <label for="brightness">Brightness:</label>
+      <input type="number" id="brightness" name="brightness" min="0" max="100" value="50"
+        placeholder="Enter brightness (0-100)" />
+      <button type="submit" class="btn">Set</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <form action="/pattern" method="post" class="control-form">
+      <div class="pattern-section">
+        <label for="pattern">Choose a Pattern:</label>
+        <select id="pattern" name="pattern" class="input-select">
+          <option value="0">Solid color (1-color)</option>
+          <option value="1">Rainbow (multicolor)</option>
+          <option value="2">Twinkle (multicolor)</option>
+          <option value="3">Cascade (multicolor)</option>
+          <option value="4">Chase (multicolor)</option>
+          <option value="5">Quadrants lights (1-color)</option>
+          <option value="6">Quadrants lights (multicolor)</option>
+        </select>
+      </div>
+
+      <div class="color-section">
+        <label for="color">Choose a Color (for 1-color patterns):</label>
+        <select id="color" name="color" class="input-select">
+          <option value="255,0,0">Red</option>
+          <option value="0,255,0">Green</option>
+          <option value="0,0,255">Blue</option>
+          <option value="255,255,0">Yellow</option>
+          <option value="255,255,255">White</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Set Pattern</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+[Unit]
+Description=Holiday Lights Flask App
+After=network.target
+
+[Service]
+User=REDACTED
+WorkingDirectory=/home/REDACTED/holiday-lights/server
+ExecStart=/home/REDACTED/holiday-lights/venv/bin/python /home/REDACTED/holiday-lights/server/main.py
+Restart=always
+Environment=FLASK_ENV=production
+
+[Install]
+WantedBy=multi-user.target
